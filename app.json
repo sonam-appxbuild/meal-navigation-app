@@ -1,0 +1,12 @@
+{
+  "name": "meal-navigation-app",
+  "displayName": "meal-navigation-app",
+  "expo": {
+    "name": "meal-navigation-app",
+    "slug": "meal-navigation-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
