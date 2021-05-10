@@ -1,0 +1,29 @@
+<View style={styles.screen}>
+            <Text>This is a Categories Screen..</Text>
+            <Button title="Go to Meals!!" onPress={()=>{
+                props.navigation.navigate({routeName: 'CategoryMeals'})
+
+                // replace() is used in login page where if users get login it cannot go back
+                // props.navigation.replace('CategoryMeals')
+
+                // push() works same as navigate but only works with stack navigation
+                // props.navigation.push('CategoryMeals')
+            }}/>
+</View>
+
+
+<View style={styles.screen}>
+            <Text>This is a Category Meal Screen..</Text>
+            <Text>{selectedCategory.title}</Text>
+            <Button title="Go to Meals Detail" onPress={()=>{
+                // props.navigation.navigate({routeName: 'MealDetails'})
+                // alternative way for navigating
+                props.navigation.navigate('MealDetails')
+            }}/>
+            <Button title="Go Back!!" onPress={()=>{
+
+                // pop is only used in stack navigator and goBack() is used everywhere
+                props.navigation.pop();
+                // props.navigation.goBack()
+            }}/>
+        </View>
