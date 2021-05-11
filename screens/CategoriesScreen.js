@@ -17,7 +17,8 @@ const CategoriesScreen = props => {
                             categoryId: itemData.item.id
                         }
                     })
-                }} />
+                }} 
+            />
         )
     }
 

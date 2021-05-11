@@ -4,54 +4,52 @@ import MealItem from '../components/MealItem';
 import Colors from '../constants/Colors';
 import { CATERGORIES, MEALS } from '../data/dummy-data';
 
-const CategoryMealsScreen = props =>{
+const CategoryMealsScreen = props => {
 
-    const renderMealItems = itemData =>{
-        return(
-            <MealItem title={itemData.item.title} 
-            onSelectMeals={()=>{}}
-            duration={itemData.item.duration}
-            affordability={itemData.item.affordability}
-            complexity={itemData.item.complexity}
-            imageUrl={itemData.item.imageUrl}
-            onSelectMeal={() => {
-                props.navigation.navigate({
-                  routeName: 'MealDetails',
-                  params: {
-                    mealId: itemData.item.id
-                  }
-                });
-              }}
+    const renderMealItems = itemData => {
+        return (
+            <MealItem
+                title={itemData.item.title}
+                duration={itemData.item.duration}
+                affordability={itemData.item.affordability}
+                complexity={itemData.item.complexity}
+                imageUrl={itemData.item.imageUrl}
+                onSelectMeal={() => {
+                    props.navigation.navigate({
+                        routeName: 'MealDetails',
+                        params: {
+                            mealId: itemData.item.id
+                        }
+                    });
+                }}
             />
         )
     }
-
     const catId = props.navigation.getParam('categoryId')
 
     // const selectedCategory = CATERGORIES.find(cat => cat.id === catId)
-
     const displayMeal = MEALS.filter(
         meal => meal.categoryIds.indexOf(catId) >= 0);
 
-    return(
+    return (
         <View style={styles.screen}>
-            <FlatList data={displayMeal} 
-            keyExtractor={(item, index)=> item.id} 
-            renderItem={renderMealItems}
-            style={{width: '100%'}}/>
+            <FlatList data={displayMeal}
+                keyExtractor={(item, index) => item.id}
+                renderItem={renderMealItems}
+                style={{ width: '100%' }} />
         </View>
     )
 }
-CategoryMealsScreen.navigationOptions = navigationData =>{
+CategoryMealsScreen.navigationOptions = navigationData => {
     const catId = navigationData.navigation.getParam('categoryId');
 
-    const selectedCategory = CATERGORIES.find(cat=> cat.id === catId);
-    return{
+    const selectedCategory = CATERGORIES.find(cat => cat.id === catId);
+    return {
         headerTitle: selectedCategory.title,
     }
 }
 const styles = StyleSheet.create({
-    screen:{
+    screen: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',

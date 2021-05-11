@@ -8,31 +8,31 @@ const MealDetailsScreen = props => {
     const mealId = props.navigation.getParam('mealId');
 
     const selectedMeal = MEALS.find(meal => meal.id === mealId);
-    
+
     return (
         <View style={styles.screen}>
             <Text>{selectedMeal.title}</Text>
             <Button title="Go Back to Categories!!" onPress={() => {
-
                 // pop is only used in stack navigator and goBack() is used everywhere
                 props.navigation.popToTop();
                 // props.navigation.goBack()
-            }} />
+            }}
+            />
         </View>
     )
 }
 
-MealDetailsScreen.navigationOptions = navigationData =>{
+MealDetailsScreen.navigationOptions = (navigationData) => {
     const mealId = navigationData.navigation.getParam('mealId');
 
     const selectedMeal = MEALS.find(meal => meal.id === mealId);
-    return{
+    return {
         headerTitle: selectedMeal.title,
         headerRight: <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-            <Item 
+            <Item
                 title="Favourite"
                 iconName="ios-star"
-                onPress={()=>{
+                onPress={() => {
                     console.log("Mark as Favourite");
                 }}
             />
