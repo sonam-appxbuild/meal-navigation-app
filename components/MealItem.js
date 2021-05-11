@@ -25,7 +25,6 @@ const MealItem = props => {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     mealItem: {
         height: 200,
